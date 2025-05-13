@@ -213,6 +213,9 @@ NO* girarDireita(NO* no)
 	y->dir = no;
 	no->esq = r;
 
+	y->altura = 1 + max(alturaNo(y->esq), alturaNo(y->dir));
+	no->altura = 1 + max(alturaNo(no->esq), alturaNo(no->dir));
+
 	return y;
 }
 
@@ -225,6 +228,9 @@ NO* girarEsquerda(NO* no)
 
 	y->esq = no;
 	no->dir = l;
+
+	y->altura = 1 + max(alturaNo(y->esq), alturaNo(y->dir));
+	no->altura = 1 + max(alturaNo(no->esq), alturaNo(no->dir));
 
 	return y;
 }
